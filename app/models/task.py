@@ -10,6 +10,7 @@ from pydantic import BaseModel
 
 
 class Task(BaseModel):
+    id: int
     title: str
     status: str = "Not Started"  # Default value for status
     # Using Literal for specific string values
