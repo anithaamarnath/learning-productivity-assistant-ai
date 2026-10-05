@@ -25,26 +25,9 @@ class TaskService:
 
     @staticmethod
     def get_daily_summary(tasks_list):
-        print("\nToday's Tasks:")
-        for task in TaskService.get_today_tasks(tasks_list):
-            print(
-                f"Task: {task.title},"
-                f"Status: {task.status},"
-                f"Due Date: {task.due_date}"
-            )
 
-        print("\nOverdue Tasks:")
-        for task in TaskService.get_overdue_tasks(tasks_list):
-            print(
-                f"Overdue Task: {task.title},"
-                f"Status: {task.status},"
-                f"Due Date: {task.due_date}"
-            )
-
-        print("\nCompleted Tasks:")
-        for task in TaskService.get_completed_tasks(tasks_list):
-            print(
-                f"Completed Task: {task.title},"
-                f"Status: {task.status},"
-                f"Due Date: {task.due_date}"
-            )
+        return {
+            "completed": TaskService.get_completed_tasks(tasks_list),
+            "overdue":  TaskService.get_overdue_tasks(tasks_list),
+            "today": TaskService.get_today_tasks(tasks_list)
+        }
